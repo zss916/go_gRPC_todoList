@@ -57,7 +57,7 @@ func startListen() {
 	// 加入熔断 TODO main太臃肿了
 	wrapper.NewServiceWrapper(userServiceName)
 	wrapper.NewServiceWrapper(taskServiceName)
-	
+
 	ginRouter := routes.NewRouter(userService, taskService)
 	server := &http.Server{
 		Addr:           viper.GetString("server.port"),
@@ -89,6 +89,7 @@ func RPCConnect(ctx context.Context, serviceName string, etcdRegister *discovery
 	return
 }
 
+// /使用viper
 func InitConfig() {
 	workDir, _ := os.Getwd()
 	viper.SetConfigName("config")
