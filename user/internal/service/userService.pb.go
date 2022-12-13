@@ -24,6 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// /todo request
 type UserRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -99,6 +100,7 @@ func (x *UserRequest) GetPasswordConfirm() string {
 	return ""
 }
 
+// /todo response
 type UserDetailResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

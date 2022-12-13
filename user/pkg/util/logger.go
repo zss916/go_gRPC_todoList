@@ -10,6 +10,7 @@ import (
 
 var LogrusObj *logrus.Logger
 
+// /todo 日志
 func init() {
 	if LogrusObj != nil {
 		src, _ := setOutputFile()
@@ -31,7 +32,6 @@ func init() {
 	})
 	LogrusObj = logger
 }
-
 
 func setOutputFile() (*os.File, error) {
 	now := time.Now()
@@ -63,4 +63,3 @@ func setOutputFile() (*os.File, error) {
 	}
 	return src, nil
 }
-

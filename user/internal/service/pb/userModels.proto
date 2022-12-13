@@ -2,7 +2,6 @@ syntax="proto3";
 package pb;
 option go_package = "/internal/service;service";
 
-//todo protoc命令:   protoc -I internal/service/pb internal/service/pb/*.proto --go_out=plugins=grpc:.
 
 message UserModel {
     // @inject_tag: json:"user_id"
@@ -12,3 +11,6 @@ message UserModel {
     // @inject_tag: json:"nick_name"
     string NickName=3;
 }
+
+//1.定义好 userModels.proto 和 userService.proto 2.用下面的命令生成 userModels.pb.go 和  userService.pb.go
+//todo protoc命令:   protoc -I internal/service/pb internal/service/pb/*.proto --go_out=plugins=grpc:.

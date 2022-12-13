@@ -10,7 +10,7 @@ mysql:
   port: 3306
   database: grpc_todo_list
   username: root
-  password: root
+  password:
   charset: utf8mb4
 
 etcd:

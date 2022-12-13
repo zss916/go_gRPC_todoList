@@ -6,19 +6,20 @@ import (
 	"time"
 )
 
+// /todo 插件：jwt-go
 var jwtSecret = []byte(viper.GetString("server.jwtSecret"))
 
 type Claims struct {
-	UserID  	uint  `json:"user_id"`
+	UserID uint `json:"user_id"`
 	jwt.StandardClaims
 }
 
-//GenerateToken 签发用户Token
+// GenerateToken 签发用户Token
 func GenerateToken(userID uint) (string, error) {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(24 * time.Hour)
 	claims := Claims{
-		UserID:  userID,
+		UserID: userID,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: expireTime.Unix(),
 			Issuer:    "38384-SearchEngine",
@@ -29,7 +30,7 @@ func GenerateToken(userID uint) (string, error) {
 	return token, err
 }
 
-//ParseToken 验证用户token
+// ParseToken 验证用户token
 func ParseToken(token string) (*Claims, error) {
 	tokenClaims, err := jwt.ParseWithClaims(token, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return jwtSecret, nil

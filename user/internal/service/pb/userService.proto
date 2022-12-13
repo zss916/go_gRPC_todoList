@@ -19,7 +19,7 @@ message UserDetailResponse{
   uint32 Code=2;
 }
 
-
+//todo grpc 接口
 service UserService{
   rpc UserLogin(UserRequest) returns(UserDetailResponse);
   rpc UserRegister(UserRequest) returns(UserDetailResponse);

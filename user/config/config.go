@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// 插件：viper
 func InitConfig() {
 	workDir, _ := os.Getwd()
 	viper.SetConfigName("config")
